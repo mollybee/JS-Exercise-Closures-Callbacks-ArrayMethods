@@ -158,18 +158,22 @@ function scoreboard2(getInningScoreFn, inningFn, numberOfInnings) {
     finalScore.awayTeam += getInningScoreFn();
 
     inningScores[inningNumber] = { awayTeam: finalScore.awayTeam, homeTeam: finalScore.homeTeam };
-    // console.log(`${inningNumber} inning: ${finalScore.awayTeam} - ${finalScore.homeTeam}`);
+
     if(inningFn) {
       const isLastInning = inningNumber == numberOfInnings;
-      inningFn({ awayTeam: finalScore.awayTeam, homeTeam: finalScore.homeTeam }, isLastInning);
+      inningFn(inningNumber, { awayTeam: finalScore.awayTeam, homeTeam: finalScore.homeTeam }, isLastInning);
     }
   }
 }
 
-function inningFunction(inning) {
-  const { homeTeam, awayTeam } = inning;
+function inningFunction(inningNumber, inningScore, isLastInning) {
+  const { homeTeam, awayTeam } = inningScore;
 
+  console.log(`${inningNumber} inning: ${awayTeam} - ${homeTeam}`);
 
+  if(isLastInning) {
+    console.log(`Final Score: ${awayTeam} - ${homeTeam}`)
+  }
 }
 
-scoreboard2(singleInning, () => {}, 20)
+scoreboard2(singleInning, inningFunction, 20)
