@@ -43,7 +43,7 @@ Find the file `index.js` and complete the tasks until your tests are passing.
 
 Edit the `ReadMe` file with your answers.
 
-1. In your own words, define closure (1-2 sentences).
+1. In your own words, define closure (1-2 sentences). - Closures are kind of like specified scopes for functions, allowing for inner nested functions to have access to higher level parent functions and their variables.
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -64,9 +64,17 @@ dansRoll();
 dansRoll();
 ```
 
-a. Where is closure used in this code? How can you tell?
+a. Where is closure used in this code? How can you tell? 
+
+/If you have a function, and inside of the function you're accessing a variable, but that variable is not defined inside of that function, so that variable needs to reach outside of it. // Scope /is just a place in your code where variables exist. Closure you can identify by two things: is there a function? Is there a variable inside that function that is not declared, and then needs to /reach outside that function for the value? Then that's a closure.
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+ /What is always the same is that the number generated and displayed both for the first and second time dansRoll is called, is always a random number between 0 and 5. 
+
 c. What is the lexical scope of `newRoll`? 
+
+/The scope that the child can access. Lexical scope is what makes 'closures' work. There is no lexical scope of 'newRoll' because that variable is declared right there inside that function.
 
 ### Task 3 - Stretch Goals
 
